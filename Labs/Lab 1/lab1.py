@@ -39,38 +39,44 @@ def driver():
      f = lambda x: x**2 + 4*x + 2*np.exp(x)
      g = lambda x: 6*x**3 + 2*np.sin(x)
 
+# first dot product example
      y = f(x)
      w = g(x)
 
+# second dot product example w/ two orthogonal vectors
      a = np.array([0,1])
      b = np.array([1,0])
      n2 = 2
 
+# matrix-vector multiplication example 
      A = np.array([[2, 1, 0], [3, 2, 1], [1, 1, 4]])
      x = np.array([4, 2, 1])
      nMatrix = 3
      mMatrix = 3
 
-# evaluate the dot product of y and w    
+# evaluate the dot product of y and w using our dotProduct subroutine
      start_time_1 = time.perf_counter() 
      dp = dotProduct(y,w,n)
      end_time_1 = time.perf_counter()
 
-     dp2 = dotProduct(a,b,n2)
+     # dp2 = dotProduct(a,b,n2) # temporarily commenting this example out
 
+# evaluate the dot product of y and w using NumPy's built-in method
      start_time_2 = time.perf_counter() 
      dpNumpy = np.dot(y, w)
      end_time_2 = time.perf_counter() 
 
+# evaluate the product of matrix A and vector x using our matrixVectorMultiply subroutine
      start_time_3 = time.perf_counter() 
      Ax = matrixVectorMultiply(A, x, nMatrix, mMatrix)
      end_time_3 = time.perf_counter() 
 
+# evaluate the product of matrix A and vector x using NumPy's built-in method
      start_time_4 = time.perf_counter() 
      AxNumpy = np.dot(A, x)
      end_time_4 = time.perf_counter()
 
-# print the output
+# print the output and time to execute
      print('the dot product is : ', dp)
      print('the numpy dot product : ', dpNumpy)
      print('the second dot product is : ', dp2)
