@@ -1,0 +1,10 @@
+3.2 Exercises
+1. x=np.linspace(0,9,10), y=np.arange(0,10,1)
+2. x[0], x[1], x[2]
+3. print('the first three entries of x are ', x[0], x[1], x[2]) -> the first three entries of x are  0.0 1.0 2.0
+4. array([1.e-01, 1.e-02, 1.e-03, 1.e-04, 1.e-05, 1.e-06, 1.e-07, 1.e-08,
+       1.e-09, 1.e-10]), x=np.arange(1,11,1), plt.semilogy(x, w), plt.xlabel('x'), plt.ylabel('w')
+5. s=3*w, plt.semilogy(x,s), plt.xlabel('x'), plt.ylabel('s')
+
+4.2 Exercises
+3. Numpy's code is faster.
