@@ -79,7 +79,7 @@ def driver():
 # print the output and time to execute
      print('the dot product is : ', dp)
      print('the numpy dot product : ', dpNumpy)
-     print('the second dot product is : ', dp2)
+     # print('the second dot product is : ', dp2) # also temporarily commenting this out
      print('the matrix-vector product is : ', Ax )
      print('the numpy matrix-vector product is : ', AxNumpy)
      print(f"time to complete dot product: {end_time_1-start_time_1:.6f} seconds")
