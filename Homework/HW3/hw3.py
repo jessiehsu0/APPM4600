@@ -90,6 +90,27 @@ def newton(f,fp,p0,tol,Nmax):
     info = 1
     return [p,pstar,info,it]
 
+def fixedpt(f, x0, tol, Nmax):
+    x = np.zeros((Nmax + 1, 1))
+    x[0] = x0
+
+    count = 0
+
+    while (count < Nmax):
+        count += 1
+        x1 = f(x0)
+        x[count] = x1
+
+        if (abs(x1 - x0) < tol):
+            ier = 0
+            return [x, ier]
+
+        x0 = x1
+
+    ier = 1
+
+    return [x, ier]
+
 def p_2_a():
     plt.plot(x, f_2(x))
     plt.axhline(0, color='black', linestyle='--')
@@ -118,6 +139,37 @@ def p_2_c():
     print('approximate root: ', x_star)
     print('error message reads: ', ier)
 
+def p_3():
+    # f_a = lambda x: x * (1 + ((7 - x**5)/x**2))**3
+    # f_b = lambda x: x - ((x**5 - 7)/x**2)
+    f_c = lambda x: x - ((x**5 - 7)/(5*x**4))
+    f_d = lambda x: x - (x**5 - 7)/12
+
+    x0 = 1
+
+    tol = 1e-10
+    Nmax = 200
+
+    # [xstar_a, ier_a] = fixedpt(f_a, 1, tol, Nmax)
+    # [xstar_b, ier_b] = fixedpt(f_b, x0, tol, Nmax)
+    [xstar_c, ier_c] = fixedpt(f_c, x0, tol, Nmax)
+    [xstar_d, ier_d] = fixedpt(f_d, x0, tol, Nmax)
+
+    # print('a) the sequence of approximated fixed points is: ', xstar_a)
+    # print('error message reads: ', ier_a)
+
+    # print('b) the sequence of approximated fixed points is: ', xstar_b)
+    # print('error message reads: ', ier_b)
+
+    print('c) the sequence of approximated fixed points is: ')
+    print(xstar_c)
+    print('error message reads: ', ier_c)
+
+    print('d) the sequence of approximated fixed points is: ')
+    print(xstar_d)      
+    print('error message reads: ', ier_d)
+
 # p_2_a()
 # p_2_b()
-p_2_c()
+# p_2_c()
+p_3()
